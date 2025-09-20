@@ -1,10 +1,10 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from app.routers import health
+from app.routers import health, course_proxy
 from app.config.settings import settings
 
 def create_app() -> FastAPI:
-    api = FastAPI(title="New One.UF", version="0.1.0")
+    api = FastAPI(title="New One.UF")
     
     api.add_middleware(
         CORSMiddleware,
@@ -15,6 +15,7 @@ def create_app() -> FastAPI:
     )
     
     api.include_router(health.router, prefix="/v1")
+    api.include_router(course_proxy.router, prefix="/v1")
     return api
 
 app = create_app()

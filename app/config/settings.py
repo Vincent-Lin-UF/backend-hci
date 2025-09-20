@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 import os
-from typing import List
+from typing import List, Final
 
 class Settings:
     
@@ -10,3 +10,6 @@ class Settings:
         self.FRONTEND_ORIGINS: List[str] = [o.strip() for o in raw.split(",") if o.strip()]
         
 settings = Settings()
+
+UF_SOC_BASE_URL: Final[str] = "https://one.uf.edu/apix/soc/schedule"
+UF_TERM: Final[str] = "2258"

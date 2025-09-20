@@ -1,10 +1,10 @@
 repos:
   - repo: local
-    rev: 0.0.0
     hooks:
       - id: mypy-pre-push
         name: mypy (pre-push)
-        entry: bash -c "mypy app"
         language: system
+        entry: mypy
+        args: [app]
         pass_filenames: false
         stages: [pre-push]
